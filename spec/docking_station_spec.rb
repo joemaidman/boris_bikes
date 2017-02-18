@@ -1,13 +1,13 @@
 require "docking_station"
+require "garage"
 
 describe DockingStation do
-  let(:bike) { double :bike}
-  let(:broken_bike) { double :bike}
-
+  let(:bike) { double :bike, working?: true}
+  let(:broken_bike) { double :bike, working?: false}
+  garage = Garage.new
   # The is the shorthand syntax to define stubs for the double without having to allow and return style
   # let(:bike) { double :bike, working?: true}
   # let(:broken_bike) { double :bike, working?: false}
-
 
   describe "#initialize the docking station" do
     it "should have a default capacity of 20 if no other capacity is set" do
@@ -70,6 +70,22 @@ describe DockingStation do
       docking_station = DockingStation.new(50)
       50.times {docking_station.dock bike}
       expect { docking_station.dock bike}.to raise_error("Sorry, the dock is full.")
+      end
+    end
+
+    describe "#release_broken_bike" do
+      it "releases a broken bike" do
+        subject.dock(broken_bike)
+        expect(subject.release_broken_bike).to eq broken_bike
+      end
+
+      it "raises an error if there are no bikes in the docking station" do
+        expect{ subject.release_broken_bike }.to raise_error("Sorry, the dock is empty.")
+      end
+
+      it "raises an error if there are no broken bikes in the docking station" do
+        subject.dock(bike)
+        expect{ subject.release_broken_bike }.to raise_error("Good news, no broken bikes available!")
       end
     end
 

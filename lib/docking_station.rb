@@ -19,6 +19,15 @@ class DockingStation
    #@bikes.pop or @bikes.last
   end
 
+  def release_broken_bike
+   raise "Sorry, the dock is empty." if empty?
+   @bikes.each do |x|
+     return @bikes.delete(x) if x.working? == false
+   end
+   raise "Good news, no broken bikes available!"
+   #@bikes.pop or @bikes.last
+  end
+
   def dock(bike)
     raise "Sorry, the dock is full." if full?
     @bikes << bike
