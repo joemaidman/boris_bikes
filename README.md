@@ -1,6 +1,7 @@
-### Boris-Bikes Maker's Challenge Week 1
+### Boris Bikes Makers Academy Challenge Week 1
 
-Learning to use test-driven approach to create object-oriented code.
+Learning to use a test-driven development approach to create object-oriented code.
+This project emulates the infrastructure behind the London Santander bike scheme at a basic level
 
 ### Technologies Used
 - Rspec
@@ -13,3 +14,5 @@ Learning to use test-driven approach to create object-oriented code.
 ### Contributors
 - Joe Maidman
 - Ashwini Mani
+- Katie Koschland
+- Clem Capel-Bird

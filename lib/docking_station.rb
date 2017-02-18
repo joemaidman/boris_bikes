@@ -1,39 +1,37 @@
-# docking_station = DockingStation
-class DockingStation
-  attr_reader :docked_bikes, :capacity
+require_relative "bike"
 
+class DockingStation
   DEFAULT_CAPACITY = 20
 
+  attr_reader :capacity, :bikes
+
   def initialize(capacity = DEFAULT_CAPACITY)
+    @bikes = []
     @capacity = capacity
-    @docked_bikes = Array.new
   end
 
   def release_bike
-    #return docked_bikes unless docked_bikes.nil?
-    #raise "Sorry, no bikes left!"
-    fail "No bikes available" unless empty?
-    @docked_bikes.last
+   raise "Sorry, the dock is empty." if empty?
+   @bikes.each do |x|
+     return @bikes.delete(x) if x.working?
+   end
+   raise "Sorry, no working bikes available."
+   #@bikes.pop or @bikes.last
   end
 
   def dock(bike)
-    #return raise "Sorry, no space left!" if docked_bikes
-    #@docked_bikes = bike
-    fail "Full capacity" if full?
-    @docked_bikes.push(bike)
+    raise "Sorry, the dock is full." if full?
+    @bikes << bike
     bike
-  end
-
-  def show_docked
-    docked_bikes
   end
 
   private
   def full?
-   @docked_bikes.length >= DEFAULT_CAPACITY
+    @bikes.length >= capacity
   end
 
   def empty?
-    @docked_bikes.length > 0
+    @bikes.empty?
   end
+
 end
