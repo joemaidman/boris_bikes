@@ -2,6 +2,7 @@ require "docking_station"
 require "garage"
 
 describe DockingStation do
+
   let(:bike) { double :bike, working?: true}
   let(:broken_bike) { double :bike, working?: false}
   garage = Garage.new
@@ -55,7 +56,7 @@ describe DockingStation do
   end
 
   describe '#dock' do
-    it { is_expected.to respond_to(:dock).with(1).argument }
+    it { is_expected.to respond_to(:dock) }
 
     it "raises an error when the dock is full" do
       subject.capacity.times {subject.dock bike}
@@ -74,6 +75,7 @@ describe DockingStation do
     end
 
     describe "#release_broken_bike" do
+      it { is_expected.to respond_to(:release_broken_bike)}
       it "releases a broken bike" do
         subject.dock(broken_bike)
         expect(subject.release_broken_bike).to eq broken_bike

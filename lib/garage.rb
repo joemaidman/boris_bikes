@@ -10,7 +10,6 @@ class Garage
 
   def dock(bike)
     raise "Sorry, the garage is full." if full?
-
     raise "I only accept broken bikes!" if bike.working?
     fix_bike(bike)
     @bikes << bike
@@ -24,7 +23,6 @@ class Garage
       return @bikes.delete(x) if x.working?
     end
     raise "Sorry, no working bikes available."
-
   end
 
   private
