@@ -1,20 +1,15 @@
 require "docking_station"
 require "garage"
+require 'support/shared_examples_for_bike_container'
 
 describe DockingStation do
-
+  it_behaves_like BikeContainer
   let(:bike) { double :bike, working?: true}
   let(:broken_bike) { double :bike, working?: false}
   garage = Garage.new
   # The is the shorthand syntax to define stubs for the double without having to allow and return style
   # let(:bike) { double :bike, working?: true}
   # let(:broken_bike) { double :bike, working?: false}
-
-  describe "#initialize the docking station" do
-    it "should have a default capacity of 20 if no other capacity is set" do
-      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
-    end
-  end
 
   describe "#bikes" do
     it { is_expected.to respond_to(:bikes) }

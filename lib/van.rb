@@ -1,13 +1,10 @@
+require_relative "bike"
+require_relative "garage"
+require_relative "van"
+require_relative "bike_container"
+
 class Van
-
-  DEFAULT_CAPACITY = 20
-
-  attr_reader :capacity, :bikes
-
-  def initialize(capacity = DEFAULT_CAPACITY)
-    @bikes = []
-    @capacity = capacity
-  end
+  include BikeContainer
 
   def dock(bike)
     raise "Sorry, the van is full." if full?
@@ -21,7 +18,6 @@ class Van
       return @bikes.delete(x) if x.working?
     end
     raise "Sorry, no working bikes available."
-
   end
 
   # Takes broken bikes from the docking station given
@@ -64,14 +60,6 @@ class Van
   end
 
   private
-  def full?
-    @bikes.length >= capacity
-  end
-
-  def empty?
-    @bikes.empty?
-  end
-
   def fix_bike(bike)
     bike.working = true
   end

@@ -1,9 +1,10 @@
 require "docking_station"
 require "bike"
 require "van"
-require "garage"
+require 'support/shared_examples_for_bike_container'
 
 describe Garage do
+  it_behaves_like BikeContainer
 
   bike = Bike.new
   broken_bike = Bike.new(false)

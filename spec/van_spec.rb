@@ -1,9 +1,10 @@
 require "docking_station"
 require "bike"
-require "van"
 require "garage"
+require 'support/shared_examples_for_bike_container'
 
 describe Van do
+  it_behaves_like BikeContainer
 
   describe '#dock' do
     it { is_expected.to respond_to(:dock) }
