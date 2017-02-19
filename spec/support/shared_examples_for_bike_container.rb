@@ -9,5 +9,16 @@ shared_examples_for BikeContainer do
     end
   end
 
+  describe "#full?" do  #,  :focus => true
+    it "responds to full?" do
+      expect(subject).to respond_to(:full?)
+    end
+  end
+
+  describe "#empty?" do  #,  :focus => true
+    it "responds to empty?" do
+      expect(subject).to respond_to(:empty?)
+    end
+  end
 
 end

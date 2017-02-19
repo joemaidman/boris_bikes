@@ -8,7 +8,6 @@ module BikeContainer
     @capacity = capacity
   end
 
-  private
   def full?
     bikes.length >= capacity
   end
