@@ -7,16 +7,6 @@ This project emulates the basic infrastructure behind the London Santander bike 
 - Ruby
 - Rspec
 
-### Behaviors Learnt
-- [BDD](https://github.com/makersacademy/course/blob/master/pills/bdd_cycle.md)
-- [Pair-Programing](https://github.com/makersacademy/course/blob/master/pills/pairing.md)
-
-### Contributors
-- Joe Maidman
-- Ashwini Mani
-- Katie Koschland
-- Clem Capel-Bird
-
 ## Installation
 - Clone the repo
 
@@ -64,3 +54,13 @@ RuntimeError: Sorry, the dock is empty.
 	from (irb):18
 	from /Users/.rvm/rubies/ruby-2.2.3/bin/irb:15:in `<main>'
 ```
+
+### Behaviors Learnt
+- [BDD](https://github.com/makersacademy/course/blob/master/pills/bdd_cycle.md)
+- [Pair-Programing](https://github.com/makersacademy/course/blob/master/pills/pairing.md)
+
+### Contributors
+- Joe Maidman
+- Ashwini Mani
+- Katie Koschland
+- Clem Capel-Bird
