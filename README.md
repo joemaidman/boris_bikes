@@ -9,6 +9,7 @@ This project emulates the basic infrastructure behind the London Santander bike 
 
 ## Installation
 - Clone the repo
+- Run `bundle` to install dependencies
 
 ## Testing
 - `cd` to the project folder
